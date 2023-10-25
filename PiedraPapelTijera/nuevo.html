@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Piedra, Papel o Tijera</title>
+</head>
+<body>
+    <h1>Piedra, Papel o Tijera</h1>
+    <p>Elije una opción:</p>
+    <button id="piedra">Piedra</button>
+    <button id="papel">Papel</button>
+    <button id="tijera">Tijera</button>
+    <div id="resultado"></div>
+
+    <script>
+        // Función para que la computadora elija una opción al azar
+        function eleccionComputadora() {
+            const opciones = ["piedra", "papel", "tijera"];
+            const eleccion = Math.floor(Math.random() * 3);
+            return opciones[eleccion];
+        }
+
+        // Función para determinar el ganador
+        function determinarGanador(eleccionUsuario, eleccionComputadora) {
+            if (eleccionUsuario === eleccionComputadora) {
+                return "Empate";
+            } else if (
+                (eleccionUsuario === "piedra" && eleccionComputadora === "tijera") ||
+                (eleccionUsuario === "papel" && eleccionComputadora === "piedra") ||
+                (eleccionUsuario === "tijera" && eleccionComputadora === "papel")
+            ) {
+                return "¡Ganaste!";
+            } else {
+                return "¡La computadora gana!";
+            }
+        }
+
+        // Funciones para manejar los clics de los botones
+        document.getElementById("piedra").addEventListener("click", function() {
+            jugar("piedra");
+        });
+
+        document.getElementById("papel").addEventListener("click", function() {
+            jugar("papel");
+        });
+
+        document.getElementById("tijera").addEventListener("click", function() {
+            jugar("tijera");
+        });
+
+        function jugar(eleccionUsuario) {
+            const eleccionComp = eleccionComputadora();
+            const resultado = determinarGanador(eleccionUsuario, eleccionComp);
+            document.getElementById("resultado").textContent = `Elegiste ${eleccionUsuario}, la computadora eligió ${eleccionComp}. ${resultado}`;
+        }
+    </script>
+</body>
+</html>
