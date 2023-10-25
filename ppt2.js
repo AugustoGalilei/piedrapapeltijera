@@ -12,6 +12,11 @@ function ingreso(){
                   }
 }
 }
+function eligeMaquina(){
+ let azar = ["piedra", "papel","tijera"];
+ 
+  return azar[getRandomInt(3)];
+}
 function jugar(){
           var i;
           let puntosU = 0;
@@ -31,7 +36,7 @@ function jugar(){
               eleccionUsuario == "tijera"
             ) {
               /*evalua quien gana*/
-              if (eleccionUsuario == eleccionMaq) {
+              if (eleccionUsuario == "tijera") {
                 alert(
                   "Intento " +
                     i +
