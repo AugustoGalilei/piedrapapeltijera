@@ -1,10 +1,16 @@
 var i;
 let puntosU = 0;
 let puntosM = 0;
-let eleccionMaq = "tijera";
+let maquinaElige=["piedra","papel","tijera"];
+
+//let eleccionMaq = maquinaElige[Math.floor(Math.random()*3)];
+
 
 for( i=1;i<=3;i++) {
-let eleccionUsuario = prompt("ingrese Piedra; Papel o Tijera").toLowerCase();
+          let eleccionMaq = maquinaElige[Math.floor(Math.random()*3)];
+          
+alert(eleccionMaq);
+          let eleccionUsuario = prompt("ingrese Piedra; Papel o Tijera").toLowerCase();
 
 
 if(eleccionUsuario=="piedra"||eleccionUsuario=="papel"||eleccionUsuario=="tijera"){
@@ -39,11 +45,15 @@ else if(
          
 if(puntosU == puntosM){
                     console.log("resultado Final = EMPATE")
+                    document.getElementById("resultado").innerHTML =
+              "resultado Final = EMPATE";
           }
           else if(puntosU>puntosM) {
                     console.log(" Ganador = usuario")
+                    document.getElementById("resultado").innerHTML = " Ganador = usuario";
           }
           else {
                     console.log(" Ganador = maquina")
+                    document.getElementById("resultado").innerHTML = " Ganador = maquina";
            }
         

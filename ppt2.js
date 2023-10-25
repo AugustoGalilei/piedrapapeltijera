@@ -12,18 +12,24 @@ function ingreso(){
                   }
 }
 }
+// devuelve eleccion de la maquina
 function eligeMaquina(){
- let azar = ["piedra", "papel","tijera"];
  
-  return azar[getRandomInt(3)];
+  let azar = ["piedra", "papel","tijera"];
+ 
+  return azar[Math.floor(Math.random()*3)];
 }
 function jugar(){
           var i;
           let puntosU = 0;
           let puntosM = 0;
-          let eleccionMaq = "tijera";
+          
+          
+          
           /*ciclo que cuenta los tres intento*/
           for (i = 1; i <= 3; i++) {
+            //eleccion el al maquina
+            let eleccionMaq = eligeMaquina();
             /*ingreso del usuario Todo a minusculas*/
             let eleccionUsuario = prompt(
               "ingrese Piedra; Papel o Tijera"
@@ -36,17 +42,11 @@ function jugar(){
               eleccionUsuario == "tijera"
             ) {
               /*evalua quien gana*/
-              if (eleccionUsuario == "tijera") {
+              if (eleccionUsuario == eleccionMaq) {
                 alert(
-                  "Intento " +
-                    i +
-                    " usuario: " +
-                    puntosU +
-                    "-" +
-                    " maquina: " +
-                    puntosM
-                );
-              } else if (
+                  "Intento " +i+ " usuario: " + puntosU +"-" +" maquina: " + puntosM);
+              } 
+              else if (
                 (eleccionUsuario == "piedra" && eleccionMaq == "tijera") ||
                 (eleccionUsuario == "papel" && eleccionMaq == "piedra") ||
                 (eleccionUsuario == "tijera" && eleccionMaq == "papel")
